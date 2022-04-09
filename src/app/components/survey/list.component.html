@@ -1,0 +1,81 @@
+
+<app-header [title] ="title"></app-header>
+
+<!-- Main Content -->
+<main class="container">
+  <div class="row">
+      <h1>{{ title }}</h1>
+      <br>
+      <div>
+          <a href="/survey/add" class="btn btn-primary align-self-end" role="button">
+              <i class="fas fa-plus-circle"></i> 
+              Add a new Survey
+          </a>                
+      </div>
+
+      <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover">
+              <!-- Header Row-->
+              <tr>
+                  <th class="text-center">Title</th>
+                  <th class="text-center">Template</th>
+                  <th class="text-center">Start Date</th>
+                  <th class="text-center">End Date</th>
+                  <th class="text-center">Public?</th>
+                  <th class="text-center" colspan="5">Actions</th>
+              </tr>
+
+              <!-- Repeatable Template Row -->
+
+              <!--
+                  <% for(let count = 0; count < SurveyList.length; count++) { %>
+                  -->
+                  
+                  <tr *ngFor="let item of surveyList">
+                      <td class="text-center">{{ item.title }}</td>
+                      <td class="text-center">{{ item.template }}</td>
+                      <td class="text-center">{{ item.startDate }}</td>
+                      <td class="text-center">{{ item.endDate }}</td>
+                      <td class="text-center">{{ item.publish? 'Yes':'No' }}</td>
+                      <td class="text-center">
+                        <button type="button">
+                            <a (click)="addRespond(item._id)" class="btn btn-success btn-sm" alt="Fill Survey">
+                            <i class="fas fa-file-signature"></i></a>
+                        </button>
+                      </td>
+
+                      <td class="text-center">
+                        <button type="button">
+                          <a (click)="viewRespond(item._id)" class="btn btn-primary btn-sm" alt="View Responses">
+                          <i class="fas fa-eye"></i></a>
+                        </button>
+                      </td>
+
+                      <td class="text-center">
+                        <button type="button">
+                          <a (click)="viewStatistics(item._id)" class="btn btn-info btn-sm" alt="View Statistics">
+                          <i class="fas fa-bar-chart"></i></a>
+                        </button>
+                      </td>
+
+                      
+
+                      <td class="text-center">
+                        <button type="button">
+                          <a href="/survey/edit/{{ item._id }}" class="btn btn-primary btn-sm" alt="Edit Survey">
+                          <i class="fas fa-pencil-alt"></i></a>
+                        </button>
+                      </td>
+                      <td class="text-center">
+                        <button type="button">
+                          <a (click)="deleteMethod(item._id)" class="btn btn-danger btn-sm" alt="Delete Survey">
+                          <i class="fas fa-trash-alt"></i></a>
+                        </button>
+                      </td>
+                  </tr>
+              
+          </table>
+      </div>
+  </div>
+</main>
+<app-footer [title] ="title"></app-footer>

@@ -1,0 +1,43 @@
+<app-header [title] ="title"></app-header>
+ <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <h1>{{ title }}</h1>
+        <br>
+        <div *ngIf="noResponse; else showResponse">
+            No responses.
+        </div>
+        <ng-template #showResponse>
+            <td class="text-center">
+                <a (click)="printThisPage()" class="btn btn-primary btn-sm" alt=">Print This Page">
+                <i class="fas fa-print"></i></a>
+            </td>
+            <br>
+            <div class="table-responsive">
+                Number of Total Responds: {{respondStatistic[0]? respondStatistic[0].surveyStatistics[0].numOfSurveyResponds: 0}}
+                <table class="table table-bordered table-striped table-hover">
+                    <!-- Header Row-->
+                    <tr>
+                        <th class="text-center">Question</th>
+                        <th class="text-center">Answer</th>
+                        <th class="text-center">Number of Responds</th>
+                    </tr>
+                    <tr *ngFor="let respondstatistic of respondStatistic[0]?.respondStatistics; let i = index">
+                        <!-- <ng-container *ngFor="let respondstatisticid of respondStatistic[0].respondStatistics[i]"> -->
+                            <td class="text-center">{{respondStatistic[0].respondStatistics[i]._id.questionText}}</td>
+                            <td class="text-center">{{respondStatistic[0].respondStatistics[i]._id.answer}}</td>
+                        <!-- </ng-container> -->
+                        <td class="text-center">{{respondStatistic[0].respondStatistics[i].numOfResponds}}</td>
+                    </tr>
+                    <!-- Repeatable Template Row -->
+                </table>
+            </div>
+        </ng-template> 
+    </div>
+    <a href="javascript:history.back()" class="btn btn-warning">
+        <i class="fas fa-undo"></i> 
+        Back
+    </a>
+</main>
+<app-footer [title] ="title"></app-footer>
+<router-outlet name="print"></router-outlet>

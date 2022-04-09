@@ -1,0 +1,51 @@
+<app-header [title] ="title"></app-header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+                <h1>{{ title }}</h1>
+
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+                    <div class="form-group">
+                        <input type="hidden" name="username" [(ngModel)]="respond.username"> 
+                        <input type="hidden" name="surveyId" [(ngModel)]="respond.surveyId" >       
+                        Survey Title: {{ survey.title }}
+                    </div>
+                    <br>
+                    <ng-container *ngFor="let questid of createRange(survey.questionId.length); let i = index">
+                        <div class="form-group">
+                            Question {{survey.questionId[i]? survey.questionId[i] : i}} :
+                            {{survey.questionText[i]? survey.questionText[i] : ''}}
+                            <input type="hidden" name="questionId_{{i+1}}" [(ngModel)]="survey.questionId[i]">
+                            <input type="hidden" name="questionText_{{i+1}}" [(ngModel)]="survey.questionText[i]">
+                        </div>
+                        <ng-container *ngFor="let optiontxt of survey.questionOptionText[i].split(';')">    
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input"
+                                    id="questionOption_{{survey.questionId[i]}}_{{optiontxt}}"
+                                    name="questionOption_{{survey.questionId[i]}}" 
+                                    [value]="optiontxt" 
+                                    ngModel
+                                > 
+                                <label [for]="'questionOption_'+survey.questionId[i+1]+'_'+optiontxt">{{ optiontxt }}</label>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <br>
+                
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-edit"></i> 
+                        Submit
+                    </button>
+                    
+                    <a href="javascript:history.back()" class="btn btn-warning">
+                        <i class="fas fa-undo"></i> 
+                        Cancel
+                    </a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<app-footer [title] ="title"></app-footer>

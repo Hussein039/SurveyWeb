@@ -1,0 +1,84 @@
+<!-- <% include partials/header.ejs %> -->
+<app-header [title] ="title"></app-header>
+<body>
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="#public_survey"><img src="/assets/images/carousel-1.jpg" width="100%" height="100%"></a>
+    
+            <div class="container">
+              <div class="carousel-caption text-end ">
+                <h3 >Participate in Surveys</h3>
+                
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href="/survey/list"><img src="/assets/images/carousel-2.png" width="100%" height="100%"></a>
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1 style="color: black;">Analysis</h1>
+                
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href="/survey/add"><img src="/assets/images/carousel-3.jpg" width="100%" height="100%"></a>
+            <div class="container">
+              <div class="carousel-caption text-end">
+                <h1>Create interactive surveys</h1>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="row  p-5">
+        <div class="col-md-6">
+          <div class="h-100 p-5 text-whiterounded-3" style="background-color: #B4CFB0;">
+            <h2>Create Interactive Surveys</h2>
+            <p>Whether it maybe a office feedback or instituional upgrade, you can now create interactive surveys to help find out what your companions love.</p>
+            <a href="/survey/add"><button class="btn btn-outline-light button" style="background-color: #24a19c;" type="button">Create Survey</button></a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="h-100 p-5 bg-light border rounded-3" style="background-color:#E5E3C9;">
+            <h2>Get up-to-date Statistics</h2>
+            <p>You can now get your analysis of the survey.We can help you see the number of repsondents and answers.</p>
+            <a href=""><button class="btn btn-outline-light button" style="background-color: #24a19c;" type="button">Analysis</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="public_survey">
+        
+        <div class="row">
+          <h2>Take the Survey</h2>
+           <div class="col" *ngFor="let item of openedSurveyList">
+             <div class="card" style="background-color: #E5E3C9;">
+               <div class="card-header">
+               </div>
+              <div class="card-body">
+                <h5 class="card-title">{{item.title}}</h5>
+                <a (click)="addRespond(item._id)" style="background-color: #24a19c;" class="btn button">Participate in this survey</a>
+             </div>
+              <div class="card-footer text-muted">
+               Available from {{item.startDate}} to {{item.endDate}}
+              </div>
+            </div>
+          </div>
+
+<app-footer></app-footer>
+ <!-- <% include partials/footer.ejs %>  -->

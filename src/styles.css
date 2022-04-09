@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+.button{
+    background-color:#24A19C;
+  }
+  .navbar{
+    background-color: #94B49F;
+  }
+  .footer{
+    background-color: #94B49F;
+  }
+  .form-signin {
+    width: 100%;
+    max-width: 730px;
+    max-height: 500px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-signin input[type="text"] {
+    margin-bottom: -1px;
+
+  }
+
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+
+  }
+
+  .li{
+    color: #139487;
+  }
+
+  .title{
+    font-family:cursive;
+    color: #24A19C;
+  }
+
+  .signup-card{
+    max-width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    padding: auto;
+    background-color: #E5E3C9;
+  }
+  /* Carousel base class */
+  .carousel {
+    margin-bottom: 4rem;
+  }
+
+  .carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+
+
+  .carousel-item {
+    height: 32rem;
+  }
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }

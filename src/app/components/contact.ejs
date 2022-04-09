@@ -1,0 +1,51 @@
+<!--Author: Kanishka Dhir
+//Student ID:301220757
+//Date:02-02-2022 -->
+<% include partials/header.ejs %>
+
+<div class="container  col-xxl-8" >
+    <div class="row   py-5">
+      <!-- Displaying contact info-->
+      <div class="col-lg-7  " style="background: radial-gradient(circle,#94B49F,#E5E3C9);">
+        <h1 class="fw-bold mb-3 title">Contact Us</h1>
+        <ul class="pb-3 mb-3">
+            <li class="nav-item"><a href="https://github.com/szesandyt123/SurveyDIY.git" class="nav-link li" >Github</a></li>
+                <li class="nav-item"><a href="https://www.linkedin.com/in/" class="nav-link li " >LinkedIn</a></li>
+                <li class="nav-item"><a href="https://www.instagram.com/" class="nav-link li" >Instagram</a></li>
+                <li class="nav-item"><a href="https://www.facebook.com/" class="nav-link li" >Facebook</a></li>
+        </ul>       
+      </div>
+      <!-- Form to connect-->
+      <div class="col-md-10  col-lg-5">
+          
+        <form class="p-4  border rounded-3" style="background-color: whitesmoke;" action="/">
+            <h3 class="fw-bold mb-3 title">Give Feedback</h3>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Fname" placeholder="First Name">
+            <label for="Fname">First Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Lname" placeholder="Last Name">
+            <label for="Lname">Last Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="ContactNo" placeholder="Contact No">
+            <label for="ContactNo">Contact No</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="Emailid" placeholder="Email ID">
+            <label for="Emailid">Email Address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea class="form-control" id="message" placeholder="Write something.." style="height:100px; width:350px;"></textarea>
+            <label for="message">Message</label>
+          </div>
+          <button class="btn btn-lg button" style="width: 100%;" type="submit"  >Submit</button>
+          </form>
+      </div>
+
+    </div>
+  </div>
+
+
+<% include partials/footer.ejs %>

@@ -1,0 +1,39 @@
+<app-header [title] ="title"></app-header>
+ <!-- Main Content -->
+  <main class="container">
+    <div class="row">
+        <h1>{{ title }}</h1>
+        <br>
+        <div *ngIf="noResponse; else showResponse">
+            No responses.
+        </div>
+        <ng-template #showResponse>
+            <div class="table-responsive">
+                Number of responds = {{respondList? respondList.length : 0}}
+                <table class="table table-bordered table-striped table-hover">
+                    <!-- Header Row-->
+                    <tr>
+                        <th class="text-center">Username</th>
+                        <ng-container *ngFor="let column of createRange(respondList[0].responses.length); let i = index">
+                            <th class="text-center">Answer to Question {{respondList[0].responses[i].questionText}}</th>
+                        </ng-container>
+                        <!--<th class="text-center">Response Date</th>-->
+                    </tr>
+                    <tr *ngFor="let respond of respondList">
+                        <td class="text-center">{{respond.username ? respond.username : 'Anonymous'}}</td>
+                        <ng-container *ngFor="let response of respond.responses">
+                            <td class="text-center">{{response.answer}}</td>
+                        </ng-container>
+                        <!--<td>{{respond.responseDate}}</td>-->
+                    </tr>
+                    <!-- Repeatable Template Row -->
+                </table>
+            </div>
+        </ng-template> 
+    </div>
+    <a href="javascript:history.back()" class="btn btn-warning">
+        <i class="fas fa-undo"></i> 
+        Back
+    </a>
+  </main>
+<app-footer [title] ="title"></app-footer>
